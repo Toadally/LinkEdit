@@ -47,11 +47,11 @@
     editor.setTheme("ace/theme/tomorrow_night");
     editor.getSession().setMode("ace/mode/javascript");
 
-    var color = $("#editor").css("background-color");
+    var color = $(".ace_gutter").css("background-color");
 
     console.log(color);
 
-    $(".ace-tomorrow-night").css("background-color",color);
+    $("#sidebar").css("background-color",color);
 </script>
 
 <script>
