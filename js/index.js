@@ -9,7 +9,9 @@ $(document).ready(function(){
   var w = (100/n);
   $("#top-selector div").width(w+'%');
   $(".ace_gutter").ready(function(){
-  $("#top-selector").css("color",$(".ace_gutter").css("color"));});
+  $("#top-selector").css("color",$(".ace_gutter").css("color"));
+  $("#sidebar").css("color",$(".ace_gutter").css("color"));});
+
 
 
   $("#top-selector div").hover(function(){
