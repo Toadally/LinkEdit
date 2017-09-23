@@ -11,11 +11,11 @@
       font-family: "Inconsolata";
     }
     #editor {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 95vh;
-        width: 70vw;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 95vh;
+      width: 70vw;
     }
     #sidebar {
       width: 30vw;
@@ -24,7 +24,7 @@
       top: 0;
       left: 0;
       z-index: 100;
-
+      box-shadow: 5px 0px 5px rgba(0,0,0,0.1);
     }
     #top-selector {
       height: calc(5vh - 1px);
@@ -58,11 +58,11 @@
       display: none;
 
     }
+    .tab {
+      transition: 125ms;
+    }
     .tab:hover {
       cursor: pointer;
-    }
-    .activeTab {
-      background-color: rgba(0,0,0,0.1);
     }
     .active {
       text-decoration: underline;
@@ -72,7 +72,7 @@
       padding-bottom: 10px;
       margin: 0 auto;
       display: block;
-      height: 50px;
+      height: 5vh;
     }
     .header img {
       float: left;
@@ -90,7 +90,7 @@
       font-size: 18px;
     }
     .filelist {
-      height: calc(100vh - 50px);
+      height: calc(87vh - 12px);
     }
     .filelist div {
       margin: 0;
@@ -99,22 +99,24 @@
       height: 20px;
       padding-top: 8px;
       padding-bottom: 4px;
+      display: table;
     }
     .filelist div a {
-      display: inline-block;
-      margin: auto;
-      float: left;
-      text-align: left;
-      width: 100%;
-      height: 20px;
-      padding: 0;
-      margin-left: 5%;
+      display: table-cell;
+      vertical-align: center;
+      padding-left: 10%;
     }
     .filelist div:hover {
-      background-color: rgba(0,0,0,0.1);
       cursor: pointer;
     }
+    .footer {
+      height: 8vh;
+      width: 100%;
+      display: block;
+      border-top: 1px solid white;
+    }
 </style>
+<link rel='stylesheet' href='./css/load.css'>
 <div class='spin-back'></div><div class='spinner'></div>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -127,15 +129,17 @@
     <img width=40 src="./favicon.png">
     <h5>Lynx Editor</h5>
   </div>
-  <br>
   <div class="filelist">
-    <div><a><i class="fa fa-file-code-o"></i> index.js</a></div>
-    <div><a><i class="fa fa-file-code-o"></i> code.js</a></div>
+    <div class="tab"><a><i class="fa fa-file-code-o"></i> index.html</a></div>
+    <div class="tab"><a><i class="fa fa-file-code-o"></i> code.html</a></div>
+  </div>
+
+  <div class="footer">
   </div>
 </div>
 <div id="top-selector">
-  <div class="tab activeTab"><span class="active">index.js</span><i class="fa fa-times"></i></div>
-  <div class="tab"><span>code.js</span><i class="fa fa-times"></i></div>
+  <div class="tab activeTab"><span class="active">index.html</span><i class="fa fa-times"></i></div>
+  <div class="tab"><span>code.html</span><i class="fa fa-times"></i></div>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -144,10 +148,10 @@
 <script src="./js/load.js"></script>
 
 <script>
-    var theme = "ace-tomorrow-night-blue";
+    var theme = "ace-xcode";
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/tomorrow_night_blue");
-    editor.getSession().setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.getSession().setMode("ace/mode/php");
 
 
 </script>
