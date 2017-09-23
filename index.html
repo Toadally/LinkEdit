@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <title>Lynx Editor</title>
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" href="./fa/css/font-awesome.min.css">
 <style>
 
     @import url('https://fonts.googleapis.com/css?family=Inconsolata');
@@ -21,6 +23,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      z-index: 100;
 
     }
     #top-selector {
@@ -29,7 +32,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      z-index: 999;
+      z-index: 99;
     }
     #top-selector .tab {
       height: 100%;
@@ -43,40 +46,113 @@
       top: 75%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition: 125ms;
+    }
+    #top-selector i {
+      position: relative;
+      float: right;
+      top: 75%;
+      right: 5%;
+      transform: translate(0%, -50%);
+      height: 100%;
+      display: none;
+
     }
     .tab:hover {
-      color: white;
+      cursor: pointer;
+    }
+    .activeTab {
+      background-color: rgba(0,0,0,0.1);
+    }
+    .active {
+      text-decoration: underline;
+    }
+    .header {
+      width: 100%;
+      padding-bottom: 10px;
+      margin: 0 auto;
+      display: block;
+      height: 50px;
+    }
+    .header img {
+      float: left;
+      position: relative;
+      top: 60%;
+      left: 5%;
+      transform: translate(0%, -50%);
+    }
+    .header h5 {
+      float: left;
+      position: relative;
+      top: 35%;
+      left: 5%;
+      transform: translate(5%, -150%);
+      font-size: 18px;
+    }
+    .filelist {
+      height: calc(100vh - 50px);
+    }
+    .filelist div {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 20px;
+      padding-top: 8px;
+      padding-bottom: 4px;
+    }
+    .filelist div a {
+      display: inline-block;
+      margin: auto;
+      float: left;
+      text-align: left;
+      width: 100%;
+      height: 20px;
+      padding: 0;
+      margin-left: 5%;
+    }
+    .filelist div:hover {
+      background-color: rgba(0,0,0,0.1);
       cursor: pointer;
     }
 </style>
+<div class='spin-back'></div><div class='spinner'></div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
 <div id="editor"></div>
 <div id="sidebar">
-
+  <div class="header">
+    <img width=40 src="./favicon.png">
+    <h5>Lynx Editor</h5>
+  </div>
+  <br>
+  <div class="filelist">
+    <div><a><i class="fa fa-file-code-o"></i> index.js</a></div>
+    <div><a><i class="fa fa-file-code-o"></i> code.js</a></div>
+  </div>
 </div>
 <div id="top-selector">
-  <div class="tab"><span class="active">index.js</span></div>
-  <div class="tab"><span>index.js</span></div>
-  <div class="tab"><span>index.js</span></div>
-  <div class="tab"><span>index.js</span></div>
-  <div class="tab"><span>index.js</span></div>
+  <div class="tab activeTab"><span class="active">index.js</span><i class="fa fa-times"></i></div>
+  <div class="tab"><span>code.js</span><i class="fa fa-times"></i></div>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="./ace/ace.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="./js/load.js"></script>
+
 <script>
-    var theme = "ace-cobalt";
+    var theme = "ace-tomorrow-night-blue";
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/cobalt");
+    editor.setTheme("ace/theme/tomorrow_night_blue");
     editor.getSession().setMode("ace/mode/javascript");
+
+
 </script>
 
 <script src="./js/index.js" async defer></script>
 
-<script>
-
-</script>
 </body>
 </html>
